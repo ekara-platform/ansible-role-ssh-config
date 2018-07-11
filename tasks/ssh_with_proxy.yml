@@ -1,0 +1,18 @@
+---
+# tasks file for lagoon.ssh
+- name: Set authent configuration
+  set_fact:
+    lagoon_ssh_proxy_auth: "{{ lagoon_ssh_dir }}/authent"
+  when:
+  - lagoon_ssh_proxy_user != ""
+- name: Generate ssh config
+  template:
+    src: "templates/ssh_config_proxy"
+    dest: "{{ lagoon_ssh_dir }}/config"
+    mode: 0400
+- name: Generate auth config
+  template:
+    src: "templates/authent.j2"
+    dest: "{{ lagoon_ssh_proxy_auth }}"
+    mode: 0400
+  when: lagoon_ssh_proxy_user != ""

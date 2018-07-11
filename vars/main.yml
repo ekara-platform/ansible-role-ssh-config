@@ -1,0 +1,7 @@
+---
+# vars file for lagoon.ssh
+lagoon_ssh_proxy_user: "{{ lagoon_ssh_proxy | urlsplit('username') }}"
+lagoon_ssh_proxy_password: "{{ lagoon_ssh_proxy | urlsplit('password') }}"
+lagoon_ssh_proxy_host: "{{ lagoon_ssh_proxy | urlsplit('hostname') }}"
+lagoon_ssh_proxy_port: "{{ lagoon_ssh_proxy | urlsplit('port') }}"
+lagoon_ssh_key_file: "{{ lagoon_ssh_dir }}/{{ lagoon_ssh_key | basename }}"

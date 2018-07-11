@@ -1,0 +1,25 @@
+---
+# tasks file for lagoon.ssh
+- name: Create .ssh
+  file:
+    state: directory
+    name: "{{ lagoon_ssh_dir }}"
+    mode: 0700
+- name: Check ssh file
+  stat:
+    path: "{{ lagoon_ssh_key }}"
+  register: tmp_file
+- name: Push ssh key
+  copy:
+    src: "{{ lagoon_ssh_key }}"
+    dest: "{{ lagoon_ssh_dir }}/{{ lagoon_ssh_key | basename }}"
+    mode: 0400
+  when: tmp_file.stat.exists == True
+
+- name: Add ssh configuration with proxy
+  include_tasks: ssh_with_proxy.yml
+  when: lagoon_ssh_proxy is not none
+
+- name: Add ssh configuration without proxy
+  include_tasks: ssh_without_proxy.yml
+  when: lagoon_ssh_proxy is none

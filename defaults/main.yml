@@ -1,0 +1,7 @@
+---
+# defaults file for lagoon.ssh
+lagoon_ssh_proxy: http://user:passwd@TO_BE_CHANGED
+lagoon_ssh_proxy_auth:
+lagoon_ssh_key: /opt/input/keys/to_changed
+lagoon_ssh_host: '*.aws.com'
+lagoon_ssh_dir: ~/.ssh

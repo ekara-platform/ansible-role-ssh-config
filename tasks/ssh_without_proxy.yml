@@ -1,0 +1,7 @@
+---
+# tasks file for lagoon.ssh
+- name: Generate ssh config
+  template:
+    src: "templates/ssh_config"
+    dest: "{{ lagoon_ssh_dir }}/config"
+    mode: 0400
