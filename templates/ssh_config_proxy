@@ -1,5 +1,5 @@
 Host {{ lagoon_ssh_host }}
-	User ubuntu
-	IdentityFile {{lagoon_ssh_key_file}}
-	StrictHostKeyChecking no
-	ProxyCommand /usr/local/bin/corkscrew {{lagoon_ssh_proxy_host}} {{lagoon_ssh_proxy_port}} %h %p {{lagoon_ssh_proxy_auth}}
+    User ubuntu
+    IdentityFile {{lagoon_ssh_key_file}}
+    StrictHostKeyChecking no
+    ProxyCommand /usr/local/bin/corkscrew {{lagoon_ssh_proxy_host}} {{lagoon_ssh_proxy_port}} %h %p {{lagoon_ssh_proxy_auth}}

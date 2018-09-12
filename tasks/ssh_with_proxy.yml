@@ -5,11 +5,15 @@
     lagoon_ssh_proxy_auth: "{{ lagoon_ssh_dir }}/authent"
   when:
   - lagoon_ssh_proxy_user != ""
-- name: Generate ssh config
-  template:
-    src: "templates/ssh_config_proxy"
+
+- name: Update ssh config
+  blockinfile:
+    block: "{{ lookup('template', 'templates/ssh_config_proxy') }}"
     dest: "{{ lagoon_ssh_dir }}/config"
+    create: true
     mode: 0400
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ lagoon_ssh_host }}"
+
 - name: Generate auth config
   template:
     src: "templates/authent.j2"
