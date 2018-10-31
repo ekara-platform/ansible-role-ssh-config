@@ -1,4 +1,4 @@
-Host {{ lagoon_ssh_host }}
+Host {{ ekara_ssh_host }}
     User ubuntu
-    IdentityFile {{lagoon_ssh_key_file}}
+    IdentityFile {{ekara_ssh_key_file}}
     StrictHostKeyChecking no

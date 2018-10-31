@@ -11,9 +11,9 @@ None.
 Role Variables
 --------------
 
-- **lagoon_ssh_proxy**: proxy url. Example: http://user:password@myproxy.com:80
-- **lagoon_ssh_key**: SSH private key file.
-- **lagoon_ssh_host**: Host pattern for proxy configuration. 
+- **ekara_ssh_proxy**: proxy url. Example: http://user:password@myproxy.com:80
+- **ekara_ssh_key**: SSH private key file.
+- **ekara_ssh_host**: Host pattern for proxy configuration. 
 
 
 Dependencies
@@ -29,11 +29,11 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: servers
     	tasks:
 		  include_role:
-		    name: lagoon.ssh
+		    name: ekara.ssh
 		  vars:
-		    lagoon_ssh_proxy: 'http://user:password@proxy.com:80'
-		    lagoon_ssh_key: /opt/mykey.pem
-		    lagoon_ssh_host: '*.xxx.com'
+		    ekara_ssh_proxy: 'http://user:password@proxy.com:80'
+		    ekara_ssh_key: /opt/mykey.pem
+		    ekara_ssh_host: '*.xxx.com'
 
 License
 -------
@@ -43,4 +43,4 @@ MITs
 Author Information
 ------------------
 
-https://github.com/lagoon-platform/ansible-role-ssh-config.git
+https://github.com/ekara-platform/ansible-role-ssh-config.git

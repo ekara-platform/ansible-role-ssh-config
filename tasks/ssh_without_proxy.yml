@@ -1,9 +1,9 @@
 ---
-# tasks file for lagoon.ssh
+# tasks file for ekara.ssh
 - name: Update ssh config
   blockinfile:
-    dest: "{{ lagoon_ssh_dir }}/config"
+    dest: "{{ ekara_ssh_dir }}/config"
     block: "{{ lookup('template', 'templates/ssh_config') }}"
     create: true
     mode: 0400
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ lagoon_ssh_host }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ ekara_ssh_host }}"

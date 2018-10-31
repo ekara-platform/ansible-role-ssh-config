@@ -1,22 +1,22 @@
 ---
-# tasks file for lagoon.ssh
+# tasks file for ekara.ssh
 - name: Set authent configuration
   set_fact:
-    lagoon_ssh_proxy_auth: "{{ lagoon_ssh_dir }}/authent"
+    ekara_ssh_proxy_auth: "{{ ekara_ssh_dir }}/authent"
   when:
-  - lagoon_ssh_proxy_user != ""
+  - ekara_ssh_proxy_user != ""
 
 - name: Update ssh config
   blockinfile:
     block: "{{ lookup('template', 'templates/ssh_config_proxy') }}"
-    dest: "{{ lagoon_ssh_dir }}/config"
+    dest: "{{ ekara_ssh_dir }}/config"
     create: true
     mode: 0400
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ lagoon_ssh_host }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ ekara_ssh_host }}"
 
 - name: Generate auth config
   template:
     src: "templates/authent.j2"
-    dest: "{{ lagoon_ssh_proxy_auth }}"
+    dest: "{{ ekara_ssh_proxy_auth }}"
     mode: 0400
-  when: lagoon_ssh_proxy_user != ""
+  when: ekara_ssh_proxy_user != ""
