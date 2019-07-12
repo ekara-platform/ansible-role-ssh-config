@@ -18,8 +18,8 @@
 
 - name: Add ssh configuration with proxy
   include_tasks: ssh_with_proxy.yml
-  when: ekara_ssh_proxy is not none
+  when: ekara_ssh_proxy is not none and ekara_ssh_proxy != ""
 
 - name: Add ssh configuration without proxy
   include_tasks: ssh_without_proxy.yml
-  when: ekara_ssh_proxy is none
+  when: ekara_ssh_proxy is none or ekara_ssh_proxy == ""
