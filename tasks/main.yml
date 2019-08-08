@@ -19,8 +19,8 @@
 
 - name: Ensure SSH is properly configured (through proxy)
   include_tasks: ssh_with_proxy.yml
-  when: ek_ssh_proxy is not none and ek_ssh_proxy != ""
+  when: ek_ssh_proxy is defined and ek_ssh_proxy != ""
 
 - name: Ensure SSH is properly configured (withoutproxy)
   include_tasks: ssh_without_proxy.yml
-  when: ek_ssh_proxy is none or ek_ssh_proxy == ""
+  when: ek_ssh_proxy is not defined or ek_ssh_proxy == ""
