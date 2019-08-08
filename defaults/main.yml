@@ -2,3 +2,4 @@
 # defaults file for ekara.ssh
 ek_ssh_dir: "~/.ssh"
 ek_ssh_host: "*"
+ek_ssh_user: "ekara"
