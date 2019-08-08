@@ -13,7 +13,7 @@
 - name: Copy key into SSH directory
   copy:
     src: "{{ ek_ssh_key }}"
-    dest: "{{ ek_ssh_key_dest }}"
+    dest: "{{ ek_ssh_key_file }}"
     mode: 0400
   when: ek_ssh_key_check.stat.exists == True
 
