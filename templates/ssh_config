@@ -1,4 +1,0 @@
-Host {{ ekara_ssh_host }}
-    User ubuntu
-    IdentityFile {{ekara_ssh_key_file}}
-    StrictHostKeyChecking no

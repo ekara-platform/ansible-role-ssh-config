@@ -1,5 +1,0 @@
-Host {{ ekara_ssh_host }}
-    User ubuntu
-    IdentityFile {{ekara_ssh_key_file}}
-    StrictHostKeyChecking no
-    ProxyCommand /usr/local/bin/corkscrew {{ekara_ssh_proxy_host}} {{ekara_ssh_proxy_port}} %h %p {{ekara_ssh_proxy_auth}}

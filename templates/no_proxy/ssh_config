@@ -1,0 +1,4 @@
+Host {{ ek_ssh_host }}
+    User {{ ek_ssh_user }}
+    IdentityFile {{ ek_ssh_key_file }}
+    StrictHostKeyChecking no

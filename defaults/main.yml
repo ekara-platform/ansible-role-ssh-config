@@ -1,7 +1,4 @@
 ---
 # defaults file for ekara.ssh
-ekara_ssh_proxy: http://user:passwd@TO_BE_CHANGED
-ekara_ssh_proxy_auth:
-ekara_ssh_key: /opt/input/keys/to_changed
-ekara_ssh_host: '*.aws.com'
-ekara_ssh_dir: ~/.ssh
+ek_ssh_dir: "~/.ssh"
+ek_ssh_host: "*"

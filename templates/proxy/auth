@@ -1,0 +1,1 @@
+{{ ek_ssh_proxy_user }}:{{ ek_ssh_proxy_password }}

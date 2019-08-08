@@ -1,25 +1,26 @@
 ---
-# tasks file for ekara.ssh
-- name: Create .ssh
+- name: Ensure SSH directory is present
   file:
     state: directory
-    name: "{{ ekara_ssh_dir }}"
+    name: "{{ ek_ssh_dir }}"
     mode: 0700
-- name: Check ssh file
+
+- name: Check if SSH key exists
   stat:
-    path: "{{ ekara_ssh_key }}"
-  register: tmp_file
-- name: Push ssh key
+    path: "{{ ek_ssh_key }}"
+  register: ek_ssh_key_check
+
+- name: Copy key into SSH directory
   copy:
-    src: "{{ ekara_ssh_key }}"
-    dest: "{{ ekara_ssh_dir }}/{{ ekara_ssh_key | basename }}"
+    src: "{{ ek_ssh_key }}"
+    dest: "{{ ek_ssh_key_dest }}"
     mode: 0400
-  when: tmp_file.stat.exists == True
+  when: ek_ssh_key_check.stat.exists == True
 
-- name: Add ssh configuration with proxy
+- name: Ensure SSH is properly configured (through proxy)
   include_tasks: ssh_with_proxy.yml
-  when: ekara_ssh_proxy is not none and ekara_ssh_proxy != ""
+  when: ek_ssh_proxy is not none and ek_ssh_proxy != ""
 
-- name: Add ssh configuration without proxy
+- name: Ensure SSH is properly configured (withoutproxy)
   include_tasks: ssh_without_proxy.yml
-  when: ekara_ssh_proxy is none or ekara_ssh_proxy == ""
+  when: ek_ssh_proxy is none or ek_ssh_proxy == ""

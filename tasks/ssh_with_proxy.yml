@@ -1,22 +1,15 @@
 ---
-# tasks file for ekara.ssh
-- name: Set authent configuration
-  set_fact:
-    ekara_ssh_proxy_auth: "{{ ekara_ssh_dir }}/authent"
-  when:
-  - ekara_ssh_proxy_user != ""
-
-- name: Update ssh config
+- name: Update SSH config
   blockinfile:
-    block: "{{ lookup('template', 'templates/ssh_config_proxy') }}"
-    dest: "{{ ekara_ssh_dir }}/config"
+    block: "{{ lookup('template', 'templates/proxy/ssh_config') }}"
+    dest: "{{ ek_ssh_dir }}/config"
     create: true
     mode: 0400
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ ekara_ssh_host }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ ek_ssh_host }}"
 
-- name: Generate auth config
+- name: Generate SSH proxy authentication file
   template:
-    src: "templates/authent.j2"
-    dest: "{{ ekara_ssh_proxy_auth }}"
+    src: "templates/proxy/auth"
+    dest: "{{ ek_ssh_auth_file }}"
     mode: 0400
-  when: ekara_ssh_proxy_user != ""
+  when: ek_ssh_proxy_user != ""

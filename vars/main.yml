@@ -1,7 +1,8 @@
 ---
 # vars file for ekara.ssh
-ekara_ssh_proxy_user: "{{ ekara_ssh_proxy | urlsplit('username') }}"
-ekara_ssh_proxy_password: "{{ ekara_ssh_proxy | urlsplit('password') }}"
-ekara_ssh_proxy_host: "{{ ekara_ssh_proxy | urlsplit('hostname') }}"
-ekara_ssh_proxy_port: "{{ ekara_ssh_proxy | urlsplit('port') }}"
-ekara_ssh_key_file: "{{ ekara_ssh_dir }}/{{ ekara_ssh_key | basename }}"
+ek_ssh_proxy_user: "{{ ek_ssh_proxy | urlsplit('username') }}"
+ek_ssh_proxy_password: "{{ ek_ssh_proxy | urlsplit('password') }}"
+ek_ssh_proxy_host: "{{ ek_ssh_proxy | urlsplit('hostname') }}"
+ek_ssh_proxy_port: "{{ ek_ssh_proxy | urlsplit('port') }}"
+ek_ssh_key_file: "{{ ek_ssh_dir }}/{{ ek_ssh_key | basename }}"
+ek_ssh_auth_file: "{{ ek_ssh_dir }}/auth"

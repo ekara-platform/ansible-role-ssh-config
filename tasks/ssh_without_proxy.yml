@@ -1,9 +1,8 @@
 ---
-# tasks file for ekara.ssh
-- name: Update ssh config
+- name: Update SSH config
   blockinfile:
-    dest: "{{ ekara_ssh_dir }}/config"
-    block: "{{ lookup('template', 'templates/ssh_config') }}"
+    dest: "{{ ek_ssh_dir }}/config"
+    block: "{{ lookup('template', 'templates/no_proxy/ssh_config') }}"
     create: true
     mode: 0400
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ ekara_ssh_host }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ ek_ssh_host }}"
