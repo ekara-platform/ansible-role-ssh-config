@@ -2,4 +2,4 @@ Host {{ ek_ssh_host }}
     User {{ ek_ssh_user }}
     IdentityFile {{ ek_ssh_key_file }}
     StrictHostKeyChecking no
-    ProxyCommand corkscrew {{ ek_ssh_proxy_host }} {{ek_ssh_proxy_port}} %h %p {{ ek_ssh_auth_file }}
+    ProxyCommand corkscrew {{ ek_ssh_proxy_host }} {{ ek_ssh_proxy_port }} %h %p {{ ek_ssh_auth_file }}
