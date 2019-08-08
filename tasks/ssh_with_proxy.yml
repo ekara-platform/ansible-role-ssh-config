@@ -5,7 +5,7 @@
     dest: "{{ ek_ssh_dir }}/config"
     create: true
     mode: 0400
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ ek_ssh_host }}"
+    marker: "# {mark} EKARA MANAGED BLOCK FOR '{{ ek_ssh_host }}'"
 
 - name: Generate SSH proxy authentication file
   template:
